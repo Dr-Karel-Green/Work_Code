@@ -4,7 +4,7 @@ Created on Tue Mar  4 14:48:59 2025
 
 @author: uazkg2
 """
-#%%Moduled
+#%%Modules
 import numpy as np
 import pyperclip
 
