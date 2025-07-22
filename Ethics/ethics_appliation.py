@@ -36,4 +36,6 @@ if target.suffix == '.pdf':
     target.rename(fp / final_name)
 elif target.suffix == '.docx':
     pdf = docx2pdf.convert(target, pure_path+f'{final_name}.pdf')
+elif target.suffix == '.doc':
+    pdf = docx2pdf.convert(target, pure_path+f'{final_name}.pdf')
 
