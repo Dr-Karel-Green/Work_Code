@@ -24,11 +24,12 @@ ris_base = np.array(['https://nottingham-research.worktribe.com/record.jx?record
 links = ris_base+ids
 
 #%% Logging in
+pyperclip.copy('karel.green2@nottingham.ac.uk')
 driver = webdriver.Chrome()
 
 driver.get("https://nottingham-research.worktribe.com/")
 
-time.sleep(15)  # Give yourself time to log in manually
+time.sleep(30)  # Give yourself time to log in manually
 
 #%% Opening the webpaege
 titles = np.array([])
