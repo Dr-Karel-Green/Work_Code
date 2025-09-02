@@ -21,21 +21,30 @@ time = np.array([i.stat().st_ctime for i in files]) #Sorts files by time put in 
 target = files[np.where(time==np.max(time))][0] #Latest file put into the folder
 
 #%% Determining type
-type = input('Is this a chair review [1] or ethics application [2]? ') or 2
+tpe = input('Is this a chair review [1] or ethics application [2]? ') or 2
 
-if int(type) == 1:
+if int(tpe) == 1:
     name_end = 'Chair Review'
-elif int(type) == 2:
+elif int(tpe) == 2:
     name_end = 'Ethics Application'
 
 name = input('Input the reference number of the application: ')
 
 final_name = name+' '+name_end+'.pdf'
 
+if  int(tpe) == 2:
+    output_path = '/Users/uazkg2/OneDrive - The University of Nottingham/Psych-Ethics - 24-25 Applications/Staff Full Review/'
+    out = Path(output_path)
+elif int(tpe) == 1:
+    output_path = '/Users/uazkg2/OneDrive - The University of Nottingham/Psych-Ethics - 24-25 Applications/Staff Chair Review/'
+    out = Path(output_path)
+    
 if target.suffix == '.pdf':
-    target.rename(fp / final_name)
+    # target.rename(fp / final_name)
+    target.rename(out / final_name)
 elif target.suffix == '.docx':
-    pdf = docx2pdf.convert(target, pure_path+f'{final_name}.pdf')
+    pdf = docx2pdf.convert(target, output_path+f'{final_name}.pdf')
 elif target.suffix == '.doc':
-    pdf = docx2pdf.convert(target, pure_path+f'{final_name}.pdf')
+    pdf = docx2pdf.convert(target, output_path+f'{final_name}.pdf')
+
 

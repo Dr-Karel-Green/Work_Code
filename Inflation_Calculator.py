@@ -17,11 +17,14 @@ value_wanted = value_wanted.astype(float)
 inflated_total = np.array([input('Input inflated total:')]) or np.array([11735.03])
 inflated_total = inflated_total.astype(float)
 
-# funder_percentage_covered  = np.array([input('What Percentage does the funder pau:')]) or np.array([80])
-# funder_percentage_covered = funder_percentage_covered.astype(float)
-# funder_percentage_covered = funder_percentage_covered/100
+conversion = input('Convert to another currency? (yes/no)') or 'no'
 
-# new_value_wanted = value_wanted*funder_percentage_covered
+if conversion == 'yes':
+    exchange_rate = np.array([input('What is the exchange rate? (e.g. £1 = $x)')])
+    exchange_rate = exchange_rate.astype(float)
+    
+    value_wanted = value_wanted/exchange_rate
+    
 print('\n')
 
 print(f'Value wanted: {value_wanted[0]:,}')
